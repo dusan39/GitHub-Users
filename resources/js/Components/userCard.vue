@@ -3,8 +3,8 @@
     <div class="list__container">
       <div v-if="user" class="card__container">
         <h2>{{ user.username }}</h2>
-        <img :src="user.avatarUrl" alt="Avatar" width="100" height="100" />
-        <a :href="user.url">{{ user.url }}</a>
+        <img :src="user.avatarUrl" alt="Avatar"  />
+        <a :href="user.url" target="_blank">{{ user.url }}</a>
       </div>
       <div v-else class="card__container">
         <p>User data not available</p>
@@ -34,22 +34,32 @@ const props = defineProps({
       justify-content: center;
       flex-direction: column;
       align-items: center;
-      border: 3px solid white;
+      border: 2px solid white;
       border-radius: 10px;
       width: 400px;
       margin: 10px 0px 10px 0px;
 
       h2{
         margin: 10px;
+        font-size: 22px;
+        font-weight: 600;
       }
 
       img{
         margin: 10px;
+        width:150px;
+        height: 150px;
       }
 
       a{
         margin: 10px;
         color: white;
+        transition: all 0.3s;
+
+        &:hover{
+          transform: scale(1.1);
+          text-decoration: underline;
+        }
       }
     }
   }

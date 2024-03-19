@@ -2,7 +2,7 @@
   <Head title="GitHub Users List" />
   <div>
     <div class="title__container">
-      <h1 class="title">GitHub users list</h1>
+      <h1 class="title">GitHub users list API</h1>
     </div>
     <div class="cards__grid">
       <userCard v-for="user in users" :key="user.username" :user="user" />
@@ -15,7 +15,7 @@
   import { usePage, Head } from '@inertiajs/vue3';
   import userCard from '../Components/userCard.vue';
   
-  const { props } = usePage();
+  //const { props } = usePage();
   
   const users = ref([]);
   
@@ -41,6 +41,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 20px;
+
+    h1{
+      font-size: 32px;
+      font-weight: bold;
+    }
   }
 
   @media (min-width: 860px) {
