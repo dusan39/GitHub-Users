@@ -12,10 +12,8 @@
   
 <script setup>
   import { ref, onMounted } from 'vue';
-  import { usePage, Head } from '@inertiajs/vue3';
+  import { Head } from '@inertiajs/vue3';
   import userCard from '../Components/userCard.vue';
-  
-  //const { props } = usePage();
   
   const users = ref([]);
   
@@ -29,7 +27,7 @@
       url: user.url
     }));
   } catch (error) {
-    console.error('Errore nel recupero dei dati degli utenti GitHub:', error);
+    console.error('Error fetching data from GitHub:', error);
   }
 });
 
@@ -41,7 +39,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px;
+    padding: 18px;
 
     h1{
       font-size: 32px;

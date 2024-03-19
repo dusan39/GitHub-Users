@@ -3,8 +3,8 @@
     <div class="list__container">
       <div v-if="user" class="card__container">
         <h2>{{ user.username }}</h2>
-        <img :src="user.avatarUrl" alt="Avatar"  />
-        <a :href="user.url" target="_blank">{{ user.url }}</a>
+        <img :src="user.avatarUrl" alt="Avatar"/>
+        <a @click="openURL(user.html_url)">Personal URL</a>
       </div>
       <div v-else class="card__container">
         <p>User data not available</p>
@@ -20,6 +20,10 @@ import { defineProps } from 'vue';
 const props = defineProps({
   user: Object
 });
+
+const openURL = url => {
+  window.open(url, '_blank');
+};
 
 </script>
 
@@ -37,11 +41,11 @@ const props = defineProps({
       border: 2px solid white;
       border-radius: 10px;
       width: 400px;
-      margin: 10px 0px 10px 0px;
+      margin: 10px 10px 10px 10px;
 
       h2{
         margin: 10px;
-        font-size: 22px;
+        font-size: 24px;
         font-weight: 600;
       }
 
@@ -53,12 +57,14 @@ const props = defineProps({
 
       a{
         margin: 10px;
+        font-size: 18px;
         color: white;
+        text-decoration: underline;
+        cursor: pointer;
         transition: all 0.3s;
 
         &:hover{
           transform: scale(1.1);
-          text-decoration: underline;
         }
       }
     }
